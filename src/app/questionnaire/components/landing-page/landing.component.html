@@ -1,0 +1,10 @@
+<div *ngIf="!viewModel || viewModel == null" class="container">
+    <h1>Pick a questionnaire to take.</h1>
+    <div class="button-bar">
+        <button mat-raised-button color="primary" (click)="onTutorialButtonCLicked()">Tutorial</button>
+        <button mat-raised-button color="accent" (click)="onTestOfHeartButtonCLicked()">Test Of Heart</button>
+    </div>
+</div>
+<div *ngIf="viewModel && viewModel !== null" class="container">
+    <question-display-component [viewModel]="viewModel"></question-display-component>
+</div>

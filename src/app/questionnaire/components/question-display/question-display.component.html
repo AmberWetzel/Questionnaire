@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="script-log">
+        <script-display-component></script-display-component>
+    </div>
+
+    <div *ngIf="currentQuestion" class="question">
+        <p>{{currentQuestion.prompt}}</p>
+        <div *ngIf="currentQuestion.answerType == answerTypes.freeResponse">
+            <mat-form-field>
+                <input matInput [(ngModel)]="currentQuestion.answer" (change)="isValid(currentQuestion.answer, currentQuestion.answerType)">
+            </mat-form-field>
+        </div>
+        <div *ngIf="currentQuestion.answerType == answerTypes.multiChoice">
+            <mat-radio-group
+            aria-labelledby="currentQuestion.prompt"
+            class="multichoice"
+            (change)="isValid(currentQuestion.answer, currentQuestion.answerType)"
+            [(ngModel)]="currentQuestion.answer">
+                <mat-radio-button class="radio-button" *ngFor="let choice of currentQuestion.answerChoices" [value]="choice">
+                    {{choice}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <!-- if noResponse, just render nothing besides the contin button -->
+    </div>
+
+        <div *ngIf="!finished">
+            <button mat-raised-button color="primary" [disabled]="isDisabled" (click)="onContinueClicked()">Continue</button>
+        </div>
+        <div *ngIf="finished">
+            <label>Your answers have been saved. You may close the window.</label>
+        </div>
+</div>

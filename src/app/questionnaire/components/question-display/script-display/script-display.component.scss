@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    height: 8rem;
+    background-color: lightgray;
+    overflow: scroll;
+}
+
+mat-list-item {
+    font-size: 12px;
+    .scriptItem {
+        color: darkgray;
+        font-style: italic;
+    }
+    .latestScriptItem {
+        color: gray;
+        font-style: normal;
+    }
+    label.prompt {
+        font-weight: bold;
+        padding-right: 10px;
+    }
+}
+
+// .scriptItem {
+//     color: darkgray;
+//     font-style: italic;
+// }
+
+// .latestScriptItem {
+//     color: gray;
+//     font-size: 12px;
+//     font-style: normal;
+//     label.prompt {
+//         font-weight: bolder;
+//         padding-right: 10px;
+//     }
+// }
+
+

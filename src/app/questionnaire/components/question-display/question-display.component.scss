@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .script-log {
+        display: block;
+        margin-bottom: 1rem;
+    }
+}
+
+mat-radio-group {
+    direction: flex;
+    flex-direction: row;
+
+    .radio-button {
+        margin: 5px;
+    }
+}
