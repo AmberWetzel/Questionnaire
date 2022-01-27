@@ -43,6 +43,7 @@ import { baseScriptViewmodel } from "./baseScript.viewmodel";
                 this.branchedNegative = true;
             } else {
                 this.questionList = this.questionList.concat(this.positiveBranch);
+                this.finished = true;
             }
             this.nextQuestion();
             break;
@@ -53,8 +54,6 @@ import { baseScriptViewmodel } from "./baseScript.viewmodel";
                 this.questionIndex = 0;
                 this.currentQuestion = this.questionList[0]; //redo the first question
                 this.branchedNegative = false; //since we have reverted
-              } else {
-                this.finished = true;
               }
               break;
 

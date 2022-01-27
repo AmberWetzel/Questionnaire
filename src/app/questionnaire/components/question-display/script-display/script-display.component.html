@@ -1,29 +1,14 @@
 <div class="container">
-    <mat-list class="content">
-        <mat-list-item *ngFor="let prompt of script" class="scriptItem">
-            <label class="prompt">{{ prompt.prompt }}</label>
-            <label *ngIf="prompt.answer" class="answer">
-                {{ prompt.answer }}
-            </label>
-        </mat-list-item>
-        <mat-list-item *ngIf="latestPrompt" class="latestScriptItem">
-            <label class="prompt">{{ latestPrompt.prompt }}</label>
-            <label *ngIf="latestPrompt.answer" class="answer">
-                {{ latestPrompt.answer }}
-            </label>
-        </mat-list-item>
-    </mat-list>
-
-    <!-- <div *ngFor="let prompt of script" class="scriptItem">
+    <div *ngFor="let prompt of script" class="scriptItem">
         <label class="prompt">{{ prompt.prompt }}</label>
         <label *ngIf="prompt.answer" class="answer">
             {{ prompt.answer }}
         </label>
     </div>
-    <div *ngIf="latestPrompt" class="LatestscriptItem">
+    <div *ngIf="latestPrompt" class="latestScriptItem">
         <label class="prompt">{{ latestPrompt.prompt }}</label>
         <label *ngIf="latestPrompt.answer" class="answer">
             {{ latestPrompt.answer }}
         </label>
-    </div> -->
+    </div>
 </div>
