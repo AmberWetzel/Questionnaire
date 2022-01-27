@@ -7,14 +7,14 @@
         <p>{{currentQuestion.prompt}}</p>
         <div *ngIf="currentQuestion.answerType == answerTypes.freeResponse">
             <mat-form-field>
-                <input matInput [(ngModel)]="currentQuestion.answer" (change)="isValid(currentQuestion.answer, currentQuestion.answerType)">
+                <input matInput [(ngModel)]="currentQuestion.answer" (input)="isValid(currentQuestion.answerType, currentQuestion.answer)">
             </mat-form-field>
         </div>
         <div *ngIf="currentQuestion.answerType == answerTypes.multiChoice">
             <mat-radio-group
             aria-labelledby="currentQuestion.prompt"
             class="multichoice"
-            (change)="isValid(currentQuestion.answer, currentQuestion.answerType)"
+            (change)="isValid(currentQuestion.answerType, currentQuestion.answer)"
             [(ngModel)]="currentQuestion.answer">
                 <mat-radio-button class="radio-button" *ngFor="let choice of currentQuestion.answerChoices" [value]="choice">
                     {{choice}}

@@ -1,7 +1,8 @@
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
+    font-size: smaller;
     width: 90%;
     margin-left: 5%;
     height: 8rem;
@@ -9,35 +10,17 @@
     overflow: scroll;
 }
 
-mat-list-item {
-    font-size: 12px;
-    .scriptItem {
-        color: darkgray;
-        font-style: italic;
-    }
-    .latestScriptItem {
-        color: gray;
-        font-style: normal;
-    }
-    label.prompt {
-        font-weight: bold;
-        padding-right: 10px;
-    }
+.scriptItem {
+    color: darkgray;
+    font-style: italic;
 }
-
-// .scriptItem {
-//     color: darkgray;
-//     font-style: italic;
-// }
-
-// .latestScriptItem {
-//     color: gray;
-//     font-size: 12px;
-//     font-style: normal;
-//     label.prompt {
-//         font-weight: bolder;
-//         padding-right: 10px;
-//     }
-// }
+.latestScriptItem {
+    color: gray;
+    font-style: normal;
+}
+label.prompt {
+    font-weight: bold;
+    padding-right: 10px;
+}
 
 

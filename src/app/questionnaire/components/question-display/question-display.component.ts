@@ -10,8 +10,6 @@ import { ScriptDisplayComponent } from './script-display/script-display.componen
   styleUrls: ['./question-display.component.scss']
 })
 
-//TODO: STYLE, then work on memory monk quiz!
-
 
 export class QuestionDisplayComponent implements OnInit {
 
@@ -33,28 +31,29 @@ export class QuestionDisplayComponent implements OnInit {
 
     this.viewModel.next();
     this.currentQuestion = this.viewModel.currentQuestion;
-    this.isDisabled = !(this.currentQuestion.answerType === AnswerTypes.noResponse);
 
-    if(this.viewModel.finished) {
+    if (!this.viewModel.finished) {
+      this.isValid(this.currentQuestion.answerType, this.currentQuestion.answer);
+    } else {
       this.finishQuiz();
-    } 
+    }
   }  
 
 
-   public isValid(answer: any, answerType: AnswerTypes): void { //called every time an answer is entered
-       if (answerType = AnswerTypes.freeResponse) {
-          if (answer.length && answer.length > 0) { //we know answser is a string in this case so can check its lengths
+   public isValid(answerType: AnswerTypes, answer?: any): void {
+       if (answerType === AnswerTypes.freeResponse) {
+          if (answer?.length && answer.length > 0) { //we know answser is a string in this case so can check its lengths
               this.isDisabled = false;
               return;
           }
        }
-       else if (answerType = AnswerTypes.multiChoice) {
+       else if (answerType === AnswerTypes.multiChoice) {
          if (answer !== null) { //an answer is selected
            this.isDisabled = false;
            return;
           }
        }
-       else if (answerType = AnswerTypes.noResponse)  {
+       else if (answerType === AnswerTypes.noResponse)  {
          this.isDisabled = false; //enable the continue button immediately
          return;
        }
