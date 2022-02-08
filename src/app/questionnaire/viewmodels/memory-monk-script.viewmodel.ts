@@ -15,13 +15,15 @@ import { baseScriptViewmodel } from "./baseScript.viewmodel";
       {
           prompt: "What is your name?",
           answerType: AnswerTypes.freeResponse,
-          answer: undefined
+          answer: undefined,
+          next: () => {}
       },
       {
           prompt: this.name + "The record of past questions and answers is above. Is it correct?",
           answerType: AnswerTypes.multiChoice,
           answerChoices: ["Yes", "No"],
-          answer: undefined
+          answer: undefined,
+          next: () => {}
       },
   ];
 
@@ -30,23 +32,23 @@ import { baseScriptViewmodel } from "./baseScript.viewmodel";
 
     private branchedNegative: boolean = false;
     private positiveBranch: question[] = []; //TODO: create!!
-    private negativeBranch: question[] = [{ prompt: "Then let's do it again.", answerType: AnswerTypes.noResponse,}];
+    private negativeBranch: question[] = [{ prompt: "Then let's do it again.", answerType: AnswerTypes.noResponse, next: () => {}}];
 
-      public next() {
+      public nextQuestion() {
           switch (this.questionIndex) {
               case 0: //set name
                 this.name = this.questionList[0].answer!;
-                this.nextQuestion();
+                this.increaseIndex();
               break;
               case 1: //is the name correct
                 if (this.currentQuestion.answer == "No") {
                   this.questionList = this.questionList.concat(this.negativeBranch);
                     this.branchedNegative = true;
-                    this.nextQuestion();
+                    this.increaseIndex();
                     break;
                 } else {
                   this.questionList = this.questionList.concat(this.positiveBranch);
-                    this.nextQuestion();
+                    this.increaseIndex();
                     break;
                 }
                 
@@ -58,17 +60,17 @@ import { baseScriptViewmodel } from "./baseScript.viewmodel";
                     this.branchedNegative = false; //since we have reverted
                     break;
                   } else {
-                    this.nextQuestion();
+                    this.increaseIndex();
                     break;
                   }
 
               default:
-                  this.nextQuestion();
+                  this.increaseIndex();
           }
 
       }
 
-      private nextQuestion() {
+      private increaseIndex() {
         this.questionIndex++;
         this.currentQuestion = this.questionList[this.questionIndex];
       }

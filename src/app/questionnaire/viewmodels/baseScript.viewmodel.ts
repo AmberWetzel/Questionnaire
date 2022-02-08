@@ -12,6 +12,6 @@ import { question } from "src/app/models/question.model";
 
 
     //Methods
-    next(): void; // this method will increment the index and handle logic such as branching answers
+    nextQuestion(): void; // this method will increment the index and handle logic such as branching answers
 
   }

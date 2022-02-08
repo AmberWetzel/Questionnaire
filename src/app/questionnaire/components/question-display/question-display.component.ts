@@ -29,7 +29,7 @@ export class QuestionDisplayComponent implements OnInit {
   public onContinueClicked() {
     this.scriptDisplay.updateScript(this.currentQuestion);
 
-    this.viewModel.next();
+    this.viewModel.nextQuestion();
     this.currentQuestion = this.viewModel.currentQuestion;
 
     if (!this.viewModel.finished) {
