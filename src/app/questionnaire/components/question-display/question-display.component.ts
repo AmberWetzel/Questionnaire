@@ -24,6 +24,7 @@ export class QuestionDisplayComponent implements OnInit {
 
   public ngOnInit() {
     this.currentQuestion = this.viewModel.currentQuestion;
+    this.isValid(this.currentQuestion.answerType);
   }
 
   public onContinueClicked() {
