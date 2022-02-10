@@ -5,6 +5,8 @@ export class question {
     answerType: AnswerTypes = AnswerTypes.freeResponse; //defaults to free response
     answerChoices?: string[]; //if multiple choice, choices
     answer?: string;
+
+    next(): void {}
 }
 
 export class scriptItem {

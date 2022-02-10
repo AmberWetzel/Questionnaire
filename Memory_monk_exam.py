@@ -7,11 +7,11 @@ print('You seem to have typed "'+str(y)+'" is this correct? (type Y or N)')
 z=input()
 
 if z=="N":
-    print("Something seeems to not be working. Please stop and ask James for help")
+    print("Something seeems to not be working. Please stop and ask July for help")
     k=input()
 elif z!="Y":
     print("You were unsucessful in following the simple instructions to type a single specific letter")
-    print("Please stop and take a moment to contemplate where you went wrong in your life, then ask James for help")
+    print("Please stop and take a moment to contemplate where you went wrong in your life, then ask July for help")
     k=input()
 else:
     print("Awesome, things seem to be working, now on to the D&D...")
@@ -124,7 +124,7 @@ else:
     print("The blackness fades and you can see the room again. This portion of the test is finished.")
     dfjkadsjfl=input()
 
-    #print("Please wait for James to tell you what to do next")
+    #print("Please wait for July to tell you what to do next")
 
 #x = input()
 #if x="cheese":
